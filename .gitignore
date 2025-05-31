@@ -1,15 +1,14 @@
 # Python/Django
-backend/code_review_venv/  # Ignore the virtual environment
+backend/code_review_venv/
+*.sqlite3
+backend/db.sqlite3
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.sqlite3  # SQLite database
-.env       # Environment variables
-
+.env
 # IDEs
 .vscode/
 .idea/
-
 # macOS
 .DS_Store
