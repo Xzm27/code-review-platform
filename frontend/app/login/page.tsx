@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { login } from "../lib/api";
 
 const LoginPage: React.FC = () => {
-  const [username, setUsername] = useState<string>("username");
-  const [password, setPassword] = useState<string>("password");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
   const router = useRouter();
