@@ -17,6 +17,17 @@ interface SubmissionResponse {
   created_at: string;
 }
 
+interface AnalysisResult{
+  line: number;
+  type: string;
+  message: string;
+  symbol: string;
+}
+
+interface AnalysisResponse {
+  results: AnalysisResult[];
+}
+
 export async function login(
   username: string,
   password: string
@@ -28,7 +39,7 @@ export async function login(
   return response.data;
 }
 
-export async function SubmitCode(
+export async function submitCode(
   token: string,
   code: string,
   language: string
@@ -39,5 +50,18 @@ export async function SubmitCode(
     { headers: { Authorization: `Bearer ${token}` } }
   );
 
+  return response.data;
+}
+
+export async function analyzeCode(
+  token: string,
+  code: string,
+  language: string
+): Promise<AnalysisResponse> {
+  const response = await api.post<AnalysisResponse>(
+    'analyze/',
+    { code, language },
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
   return response.data;
 }
